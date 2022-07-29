@@ -91,7 +91,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void updateCustomerById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerService.findtById(id);
+        Customer customer = customerService.findById(id);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/edit.jsp");
         request.setAttribute("customer", customer);
         requestDispatcher.forward(request, response);
@@ -103,7 +103,7 @@ public class CustomerServlet extends HttpServlet {
         int phone_number = Integer.parseInt(request.getParameter("phone_number"));
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Customer customer = customerService.findtById(id);
+        Customer customer = customerService.findById(id);
         customer.setPassword(password);
         customer.setPhonenumber(phone_number);
         customer.setEmail(email);
