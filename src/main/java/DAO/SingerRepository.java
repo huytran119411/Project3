@@ -92,7 +92,7 @@ public class SingerRepository {
             Connection connection = myConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SINGER_BY_ID);
             preparedStatement.setString(1, singer.getPasswordSinger());
-            preparedStatement.setString(2, String.valueOf(singer.getPasswordSinger()));
+            preparedStatement.setString(2, singer.getSingerName());
             preparedStatement.setString(3, singer.getEmailSinger());
             preparedStatement.setString(4, singer.getAddressSinger());
             preparedStatement.setString(5, String.valueOf(singer.getIdSinger()));
