@@ -15,6 +15,7 @@ public class SongRepository {
     private final String DELETE_SONG_BY_ID = "delete from song where id = ?";
     private final String SELECT_SONG_BY_ID = "select * from song where id = ?";
     private final String UPDATE_SONG_BY_ID = "update song set songName = ?, songLink = ?, avatar = ? , description = ? , price = ? , singerId = ?";
+    private final String SELECT_SONG_BY_NAME = "select * from song where name like %?%";
 
     public void addSong(Song song) {
         try {
@@ -99,6 +100,27 @@ public class SongRepository {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public Song searchByName(String songName) {
+        try {
+            Connection connection = myConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement(SELECT_SONG_BY_NAME);
+            statement.setString(1, songName);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                String songNameR = rs.getString("name");
+                String songLink = rs.getString("songLink");
+                String avatar = rs.getString("avatar");
+                String description = rs.getString("description");
+                double price = rs.getDouble("price");
+                int singleId = rs.getInt("singleId");
+                return new Song( songNameR, songLink, avatar, description, price, singleId);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 }
 
