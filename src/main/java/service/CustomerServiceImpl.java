@@ -31,4 +31,9 @@ public final CustomerRepository customerRepository = new CustomerRepository();
     public void delete(int id) {
         customerRepository.deleteCustomerById(id);
     }
+
+    @Override
+    public ArrayList<Customer> findtByName(String name) {
+        return null;
+    }
 }

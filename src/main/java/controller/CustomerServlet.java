@@ -1,7 +1,9 @@
 package controller;
 
 import model.Customer;
+import model.Singer;
 import service.CustomerServiceImpl;
+import service.SingerServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,6 +16,7 @@ import java.util.regex.Pattern;
 @WebServlet(name = "CustomerServlet", value = "/Customer")
 public class CustomerServlet extends HttpServlet {
     private final CustomerServiceImpl customerService = new CustomerServiceImpl();
+    private final SingerServiceImpl singerService = new SingerServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,9 +58,17 @@ public class CustomerServlet extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String url = "customer/login.jsp";
+        ArrayList<Customer> customerArrayList = customerService.findAll();
         if(!regexChecker("^[A-Za-z0-9._]{6,30}$", username)) {
             url = "customer/signup.jsp";
             username = "Please input again";
+        }
+        for (Customer customer: customerArrayList) {
+            if (customer.getUsername().equals(username)) {
+                url = "customer/signup.jsp";
+                username = "Username is  already exists!!!";
+                break;
+            }
         }
         if(!regexChecker("^[A-Za-z0-9._\\%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", email)) {
             url = "customer/signup.jsp";
@@ -121,15 +132,24 @@ public class CustomerServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         ArrayList<Customer> customerArrayList = customerService.findAll();
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/login.jsp");
+        ArrayList<Singer> singerArrayList = singerService.findAll();
+        String url = "customer/login.jsp";
         for (Customer customer : customerArrayList) {
             if (customer.getUsername().equals(username) && customer.getPassword().equals(password)) {
-                requestDispatcher = request.getRequestDispatcher("customer/mainPageUser.jsp");
-                request.setAttribute("name",username);
-                requestDispatcher.forward(request, response);
+                url = "customer/mainPageUser.jsp";
+                break;
             }
         }
-        request.setAttribute("result","Tài Khoản Hoặc Mật Khẩu Không Đúng");
+        for (Customer customer : customerArrayList) {
+            if (customer.getUsername().equals(username) && customer.getPassword().equals(password)) {
+                url = "customer/mainPageUserSinger.jsp";
+                break;
+            }
+        }
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
+        HttpSession httpSession = request.getSession();
+        httpSession.setAttribute("result","Tài Khoản Hoặc Mật Khẩu Không Đúng");
+        httpSession.setAttribute("name",username);
         requestDispatcher.forward(request, response);
     }
 

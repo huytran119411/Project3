@@ -12,4 +12,6 @@ public interface IService<E> {
         void update(E e);
 
         void delete(int id);
+
+        ArrayList<E> findtByName(String name);
     }
