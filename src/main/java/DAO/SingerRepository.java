@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class SingerRepository {
     private MyConnection myConnection = new MyConnection();
     private final String INSERT_SINGER = "insert into singer (username, password,singer_name, phone_number, email, address, picture) value (?,?,?,?,?,?,?);";
-    private final String UPDATE_SINGER_BY_ID = "update singer set password = ?, singer_name = ? , phone_number = ?,email = ?,address = ?, picture = ? where id = ?;";
+    private final String UPDATE_SINGER_BY_ID = "update singer set password = ?, singer_name = ? , picture = ?, phone_number = ?,email = ?,address = ? where id = ?;";
 
     private final String SELECT_ALL_SINGER = "select * from singer;";
     private final String SELECT_SINGER_BY_ID = "select * from singer where id = ?;";

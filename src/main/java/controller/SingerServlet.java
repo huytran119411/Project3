@@ -135,7 +135,7 @@ public class SingerServlet extends HttpServlet {
         singer.setEmail(email);
         singer.setAddress(address);
         singerService.update(singer);
-        response.sendRedirect("/Customer?action=");
+        response.sendRedirect("customer/mainPageUserSinger.jsp");
     }
 
     static boolean regexChecker(String theRegex,String str2Check) {

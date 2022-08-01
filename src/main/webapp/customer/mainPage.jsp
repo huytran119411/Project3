@@ -93,7 +93,7 @@
 <%--body start--%>
 <div class="row">
   <div class="col-3" style="padding-right:0; background-color: #170f24;">
-    <img src="../picture/a.png" alt="..." style="width:100%;height: 700px;border-radius: 5%">
+    <img src="../picture/black modern religious motivational quote poster.png" alt="..." style="width:100%;height:700px;border-radius: 5%">
   </div>
   <div class="col-9" style="background-color: #170f24">
     <div class="row">
