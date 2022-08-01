@@ -28,7 +28,7 @@ public class CustomerServlet extends HttpServlet {
                 updateCustomerById(request, response);
                 break;
             default:
-                displayAllCustomer(request, response);
+                mainPage(request, response);
         }
     }
 
@@ -54,7 +54,7 @@ public class CustomerServlet extends HttpServlet {
         int phone_number = Integer.parseInt(request.getParameter("phone_number"));
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        String url = "customer/login_test.jsp";
+        String url = "customer/login.jsp";
         if(!regexChecker("^[A-Za-z0-9._]{6,30}$", username)) {
             url = "customer/signup.jsp";
             username = "Please input again";
@@ -80,6 +80,11 @@ public class CustomerServlet extends HttpServlet {
         ArrayList<Customer> customerArrayList = customerService.findAll();
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/display.jsp");
         request.setAttribute("customers", customerArrayList);
+        requestDispatcher.forward(request, response);
+    }
+
+    private void mainPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPage.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -116,15 +121,15 @@ public class CustomerServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         ArrayList<Customer> customerArrayList = customerService.findAll();
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/login.jsp");
         for (Customer customer : customerArrayList) {
             if (customer.getUsername().equals(username) && customer.getPassword().equals(password)) {
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPage.jsp");
-                request.setAttribute("name", username);
+                requestDispatcher = request.getRequestDispatcher("customer/mainPageUser.jsp");
+                request.setAttribute("name",username);
                 requestDispatcher.forward(request, response);
             }
         }
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/login_test.jsp");
-        request.setAttribute("result", "Tài Khoản Hoặc Mật Khẩu Không Đúng");
+        request.setAttribute("result","Tài Khoản Hoặc Mật Khẩu Không Đúng");
         requestDispatcher.forward(request, response);
     }
 

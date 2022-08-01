@@ -19,7 +19,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="d-flex flex-grow-1">
         <span class="w-100 d-lg-none d-block"></span>
-        <a class="navbar-brand d-none d-lg-inline-block" href="/Customer?action="><i class="fa-solid fa-house-user"></i> Home </a>
+        <a class="navbar-brand d-none d-lg-inline-block" href="#"><i class="fa-solid fa-house-user"></i> Home </a>
         <div class="input-group sm">
             <input type="text" class="form-control" placeholder="Search">
             <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -27,11 +27,12 @@
     </div>
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ms-auto flex-nowrap">
+            <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-outline-warning">Hello ${name} </button></a>
             <li class="nav-item">
-            <a href="/customer/login.jsp" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Login</button></a>
+            <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Thay Đổi Thông Tin</button></a>
         </li>
             <li class="nav-item">
-                <a href="/customer/signup.jsp" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Sign Up</button></a>
+                <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Sign Out</button></a>
             </li>
             <li class="nav-item">
             </li>

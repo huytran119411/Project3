@@ -21,7 +21,7 @@
         align-items: center;
         min-height: 100vh;
         font-family: 'Jost', sans-serif;
-        background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+        background: #212529;
         flex-direction: column;
     }
 
@@ -29,7 +29,8 @@
         width: 350px;
         height: 500px;
         overflow: hidden;
-        background: #51dab6;
+        background-image: url(/picture/icons-gray-bg.svg);
+        background-color: white ;
         border-radius: 10px;
         box-shadow: 5px 20px 50px #000;
     }

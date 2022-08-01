@@ -7,16 +7,14 @@ public class Customer {
     private int phonenumber;
     private String email;
     private String address;
-    private double wallet;
 
-    public Customer(int id, String username, String password, int phonenumber, String email, String address, double wallet) {
+    public Customer(int id, String username, String password, int phonenumber, String email, String address) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.phonenumber = phonenumber;
         this.email = email;
         this.address = address;
-        this.wallet = wallet;
     }
 
     public Customer() {
@@ -78,13 +76,6 @@ public class Customer {
         this.address = address;
     }
 
-    public double getWallet() {
-        return wallet;
-    }
-
-    public void setWallet(double wallet) {
-        this.wallet = wallet;
-    }
 
     @Override
     public String toString() {
@@ -95,7 +86,6 @@ public class Customer {
                 ", phonenumber=" + phonenumber +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
-                ", wallet=" + wallet +
                 '}';
     }
 }

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: haphong
-  Date: 27/07/2022
-  Time: 08:54
+  Date: 31/07/2022
+  Time: 09:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,14 +12,29 @@
 <script src="https://kit.fontawesome.com/44761d56f1.js" crossorigin="anonymous"></script>
 <html>
 <head>
-    <title>Main Page</title>
+    <title>Play Song</title>
 </head>
+<style>
+    .container-audio {
+        width: 66%;
+        height: auto;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #eee;
+        color: #444;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+    audio {
+        width:100%;
+    }
+</style>
 <body>
 <div id="home"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="d-flex flex-grow-1">
         <span class="w-100 d-lg-none d-block"></span>
-        <a class="navbar-brand d-none d-lg-inline-block" href="/Customer?action="><i class="fa-solid fa-house-user"></i> Home </a>
+        <a class="navbar-brand d-none d-lg-inline-block" href="#"><i class="fa-solid fa-house-user"></i> Home </a>
         <div class="input-group sm">
             <input type="text" class="form-control" placeholder="Search">
             <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -28,10 +43,10 @@
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ms-auto flex-nowrap">
             <li class="nav-item">
-            <a href="/customer/login.jsp" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Login</button></a>
-        </li>
+                <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Login</button></a>
+            </li>
             <li class="nav-item">
-                <a href="/customer/signup.jsp" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Sign Up</button></a>
+                <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Sign Up</button></a>
             </li>
             <li class="nav-item">
             </li>
@@ -39,58 +54,30 @@
     </div>
 </nav>
 <div class="row" style="background-color: #f8f9fa">
-        <div class="navbar navbar-expand-lg navbar-dark bg-dark" >
-            <ul class="navbar-nav ms-auto flex-nowrap">
-                <li class="nav-item">
-                    <a href="#" class="nav-link m-2 menu-item">Ca Sĩ</a>
-                </li>
-            </ul>
-        </div>
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <ul class="navbar-nav ms-auto flex-nowrap">
+            <li class="nav-item">
+                <a href="#" class="nav-link m-2 menu-item">Ca Sĩ</a>
+            </li>
+        </ul>
     </div>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="text-align: center;background-color: #212529; width: 100%">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    </div>
-    <div class="carousel-inner" >
-        <div class="carousel-item active">
-            <img src ="https://photo-zmp3.zmdcdn.me/banner/2/f/2/e/2f2ee9e31054d0894da4d2a3495bb54c.jpg"  alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://photo-zmp3.zmdcdn.me/banner/5/e/2/d/5e2d6801a400d0ac6171fff990b0bb1a.jpg"   alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://photo-zmp3.zmdcdn.me/banner/c/f/1/4/cf14856b2c5204bfef4b147753b636f5.jpg" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://photo-zmp3.zmdcdn.me/banner/2/9/8/d/298db64412c5da6ab258d5a75fbfd1d6.jpg" alt="...">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
 </div>
-<%--body start--%>
-<div class="row">
+<div class="row" style=" padding-top:10px;">
     <div class="col-3" style="padding-right:0; background-color: #212529;">
         <img src="../picture/Screen Shot 2022-07-30 at 11.33.24.png" alt="..." style="width:100%;border-radius: 5%">
     </div>
     <div class="col-9" style="background-color: #212529">
-    <div class="row">
-        <br>
-        <h2 style="color:white">Hit Song</h2>
-        <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #212529 ;background-color: #2c2c2c;padding: 10px;">
-            <img src="../picture/maxresdefault.jpeg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
-            <p style="text-align: center; color: white;padding: 10px";>Hương Mùa Hè</p>
-            <p style="text-align: center; color: white"> Hương Mùa Hè Band </p>
+        <div style="text-align: center;padding: 10px;">
+            <img src="https://i.ytimg.com/vi/B9PDYlaV84w/maxresdefault.jpg" alt="..." style="width:90%;height: 400px;border-radius: 5%">
+            <p style="text-align: center; color: white;padding: 10px";>Lời Tạm Biệt Chưa Nói</p>
+            <p style="text-align: center; color: white">Orange & Grey D</p>
         </div>
+        <div class="container-audio">
+            <audio controls loop>
+                <source src="https://docs.google.com/uc?id=19U9zP0nE5dHq-0hNy0AOuMaGBPK82VBL" type="audio/mp3">
+            </audio>
+    </div>
+        <div class ="row">
         <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #212529 ;background-color: #2c2c2c;padding: 10px;">
             <img src="https://photo-zmp3.zmdcdn.me/banner/2/f/2/e/2f2ee9e31054d0894da4d2a3495bb54c.jpg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
             <p style="text-align: center; color: white;padding: 10px";>Đoạn Kết Mới</p>
@@ -112,40 +99,7 @@
             <p style="text-align: center; color: white">Tăng Duy Tân</p>
         </div>
         </div>
-        <div class="row">
-            <br>
-            <h2 style="color:white">Album</h2>
-            <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #212529 ;background-color: #2c2c2c;padding: 10px;">
-                <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/0/1/c/7/01c7b5ca14a7e541977f46dfd8cabdb5.jpg" alt="" style="width:90%;height: 180px;border-radius: 5%">
-                <p style="text-align: center; color: white;padding: 10px";>Nhạc Cho Chủ Nhật</p>
-                <p style="text-align: center; color: white"></p>
-            </div>
-            <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #212529 ;background-color: #2c2c2c;padding: 10px;">
-                <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/7/2/d/0/72d0d3414a89b76712dbdf05a4e2473c.jpg" alt="" style="width:90%;height: 180px;border-radius: 5%">
-                <p style="text-align: center; color: white;padding: 10px";>Nhạc Phim Hàn</p>
-                <p style="text-align: center; color: white"></p>
-            </div>
-        </div>
-        <div class="row">
-            <br>
-            <h2 style="color:white">Nghệ Sĩ Yêu Thích</h2>
-            <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #212529 ;background-color: #2c2c2c;padding: 10px;">
-                <img src="https://yt3.ggpht.com/ytc/AKedOLQ-pO1p4Djrp5KaiawzzlBYUrKWBA-ZKteptNztQw=s900-c-k-c0x00ffffff-no-rj" alt="" style="width:90%;height: 180px;border-radius: 5%">
-                <p style="text-align: center; color: white;padding: 10px";>SooBin</p>
-                <p style="text-align: center; color: white"></p>
-            </div>
-            <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #212529 ;background-color: #2c2c2c;padding: 10px;">
-                <img src="https://spartabeerclub.vn/media/images/article/507/nu-ca-si-min.jpg" alt="" style="width:90%;height: 180px;border-radius: 5%">
-                <p style="text-align: center; color: white;padding: 10px";>Min</p>
-                <p style="text-align: center; color: white"></p>
-            </div>
-            <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #212529 ;background-color: #2c2c2c;padding: 10px;">
-                <img src="https://znews-photo.zingcdn.me/w660/Uploaded/wyhktpu/2022_02_07/thumb.jpg" alt="" style="width:90%;height: 180px;border-radius: 5%">
-                <p style="text-align: center; color: white;padding: 10px";>Erik</p>
-                <p style="text-align: center; color: white"></p>
-            </div>
-        </div>
-</div>
+    </div>
 </div>
 <%--body end--%>
 <div class="row">
@@ -221,6 +175,5 @@
         </footer>
     </div>
 </div>
-
 </body>
 </html>
