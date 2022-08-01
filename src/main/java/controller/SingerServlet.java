@@ -54,16 +54,17 @@ public class SingerServlet extends HttpServlet {
     private void addSinger(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String singerName = request.getParameter("singerName");
+        String singerName = request.getParameter("singer_name");
         String picture = request.getParameter("picture");
-        int phoneNumber = Integer.parseInt(request.getParameter("phoneNumber"));
+        int phoneNumber = Integer.parseInt(request.getParameter("phone_number"));
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        String url = "customer/mainPageUser.jsp";
+        String url = "customer/mainPageUserAdmin.jsp";
         if(!regexChecker("^[A-Za-z0-9._]{6,30}$", username)) {
             url = "customer/signupSinger.jsp";
             username = "Please input again";
         }
+
         ArrayList<Singer> singerArrayList = singerService.findAll();
         for (Singer singer: singerArrayList) {
             if (singer.getUsername().equals(username)) {
@@ -72,10 +73,12 @@ public class SingerServlet extends HttpServlet {
                 break;
             }
         }
+
         if(!regexChecker("^[A-Za-z0-9._\\%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", email)) {
             url = "customer/signupSinger.jsp";
             email = "Please input again";
         }
+
         if(!regexChecker("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$", password)) {
             url = "customer/signupSinger.jsp";
             password = "Please input again";
@@ -119,9 +122,9 @@ public class SingerServlet extends HttpServlet {
     private void editSinger(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String password = request.getParameter("password");
-        String singerName = request.getParameter("singerName");
+        String singerName = request.getParameter("singer_name");
         String picture = request.getParameter("picture");
-        int phoneNumber = Integer.parseInt(request.getParameter("phoneNumber"));
+        int phoneNumber = Integer.parseInt(request.getParameter("phone_number"));
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         Singer singer = singerService.findtById(id);

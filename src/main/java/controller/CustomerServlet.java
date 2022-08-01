@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -96,6 +97,12 @@ public class CustomerServlet extends HttpServlet {
 
     private void mainPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPage.jsp");
+        HttpSession httpSession = request.getSession();
+        httpSession.setAttribute("result","");
+        httpSession.setAttribute("name","");
+        httpSession.setAttribute("id","");
+        httpSession.setAttribute("singerName","");
+        httpSession.setAttribute("singerId","");
         requestDispatcher.forward(request, response);
     }
 
@@ -125,7 +132,7 @@ public class CustomerServlet extends HttpServlet {
         customer.setEmail(email);
         customer.setAddress(address);
         customerService.update(customer);
-        response.sendRedirect("/Customer?action=");
+        response.sendRedirect("customer/mainPageUser.jsp");
     }
 
     private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -134,22 +141,36 @@ public class CustomerServlet extends HttpServlet {
         ArrayList<Customer> customerArrayList = customerService.findAll();
         ArrayList<Singer> singerArrayList = singerService.findAll();
         String url = "customer/login.jsp";
+        Customer customer1 = null;
+        Singer singer1 = null;
         for (Customer customer : customerArrayList) {
             if (customer.getUsername().equals(username) && customer.getPassword().equals(password)) {
                 url = "customer/mainPageUser.jsp";
+                customer1 = customer;
                 break;
             }
         }
-        for (Customer customer : customerArrayList) {
-            if (customer.getUsername().equals(username) && customer.getPassword().equals(password)) {
+        for (Singer singer : singerArrayList) {
+            if (singer.getUsername().equals(username) && singer.getPassword().equals(password)) {
                 url = "customer/mainPageUserSinger.jsp";
+                singer1 = singer;
                 break;
             }
+        }
+        if ((Objects.equals(username, "admin")) && (Objects.equals(password, "admin"))) {
+            url = "customer/mainPageUserAdmin.jsp";
         }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
         HttpSession httpSession = request.getSession();
-        httpSession.setAttribute("result","Tài Khoản Hoặc Mật Khẩu Không Đúng");
-        httpSession.setAttribute("name",username);
+        httpSession.setAttribute("result", "Tài Khoản Hoặc Mật Khẩu Không Đúng");
+        if (url.equals("customer/mainPageUser.jsp")) {
+            httpSession.setAttribute("name", customer1.getUsername());
+            httpSession.setAttribute("id", customer1.getId());
+        }
+        if (url.equals("customer/mainPageUserSinger.jsp")) {
+            httpSession.setAttribute("singerName", singer1.getSingerName());
+            httpSession.setAttribute("singerId", singer1.getId());
+        }
         requestDispatcher.forward(request, response);
     }
 
@@ -165,5 +186,9 @@ public class CustomerServlet extends HttpServlet {
         } else {
             return false;
         }
+    }
+    private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainpage.jsp");
+        requestDispatcher.forward(request, response);
     }
 }

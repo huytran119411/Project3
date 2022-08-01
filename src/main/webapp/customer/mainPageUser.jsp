@@ -29,10 +29,10 @@
         <ul class="navbar-nav ms-auto flex-nowrap">
             <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-outline-warning">Hello ${name} </button></a>
             <li class="nav-item">
-            <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Thay Đổi Thông Tin</button></a>
+            <a href="/Customer?action=edit&id=${id}" class="nav-link m-2 menu-item" ><button type="submit" class="btn btn-success">Thay Đổi Thông Tin</button></a>
         </li>
             <li class="nav-item">
-                <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Sign Out</button></a>
+                <a href="/Customer?action=" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Sign Out</button></a>
             </li>
             <li class="nav-item">
             </li>

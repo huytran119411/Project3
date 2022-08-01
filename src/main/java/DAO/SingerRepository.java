@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class SingerRepository {
     private MyConnection myConnection = new MyConnection();
-    private final String INSERT_SINGER = "insert into singer (username, password,singer_name,picture, phone_number, email, address) value (?,?,?,?,?);";
-    private final String UPDATE_SINGER_BY_ID = "update singer set password = ?, singer_name = ? , picture = ?, phone_number = ?,email = ?,address = ? where id = ?;";
+    private final String INSERT_SINGER = "insert into singer (username, password,singer_name, phone_number, email, address, picture) value (?,?,?,?,?,?,?);";
+    private final String UPDATE_SINGER_BY_ID = "update singer set password = ?, singer_name = ? , phone_number = ?,email = ?,address = ?, picture = ? where id = ?;";
 
     private final String SELECT_ALL_SINGER = "select * from singer;";
     private final String SELECT_SINGER_BY_ID = "select * from singer where id = ?;";
@@ -25,10 +25,10 @@ public class SingerRepository {
             preparedStatement.setString(1, singer.getUsername());
             preparedStatement.setString(2, singer.getPassword());
             preparedStatement.setString(3, singer.getSingerName());
-            preparedStatement.setString(4, singer.getPicture());
-            preparedStatement.setString(5, String.valueOf(singer.getPhoneNumber()));
-            preparedStatement.setString(6, singer.getEmail());
-            preparedStatement.setString(7, singer.getAddress());
+            preparedStatement.setString(4, String.valueOf(singer.getPhoneNumber()));
+            preparedStatement.setString(5, singer.getEmail());
+            preparedStatement.setString(6, singer.getAddress());
+            preparedStatement.setString(7, singer.getPicture());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
