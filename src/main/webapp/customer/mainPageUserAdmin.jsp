@@ -20,7 +20,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="d-flex flex-grow-1">
         <span class="w-100 d-lg-none d-block"></span>
-        <a class="navbar-brand d-none d-lg-inline-block" href="#"><i class="fa-solid fa-house-user"></i> Home </a>
+        <a class="navbar-brand d-none d-lg-inline-block" href="/Singer?action=homeAdmin"><i class="fa-solid fa-house-user"></i> Home </a>
         <div class="input-group sm">
             <input type="text" class="form-control" placeholder="Search">
             <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -95,11 +95,10 @@
         <div class="row">
             <br>
             <h2 style="color:white">Hit Song</h2>
-            <div class="col-3"
-                 style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
-                <img src="../picture/maxresdefault.jpeg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
-                <b><p style="text-align: center; color: white;padding: 10px" ;>Hương Mùa Hè</p></b>
-                <p style="text-align: center; color: white"> Hương Mùa Hè Band </p>
+            <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
+                <a href="/Song?action=playSongAdmin&id=5" style="text-decoration: none"><img src="../picture/maxresdefault.jpeg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
+                    <b><p style="text-align: center; color: white;padding: 13px";>Hương Mùa Hè</p></b>
+                    <p style="text-align: center; color: white"> Hương Mùa Hè Band </p></a>
             </div>
             <div class="col-3"
                  style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">

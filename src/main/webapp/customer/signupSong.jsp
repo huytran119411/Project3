@@ -98,7 +98,7 @@
             <input type="text" name="songName" id="songName" placeholder="Song Name" >
             <input type="text" name="linkSong" id="linkSong" placeholder="Link Song (.mp3)">
             <input type="text" name="linkImage" id="linkImage" placeholder="Link Image">
-            <input type="text" name="id" id="id" placeholder="Singer Id" value="${id}" style="display: none">
+            <input type="text" name="id" id="id" value="${id}" style="display: none">
             <button type="submit">Create</button>
         </form>
     </div>

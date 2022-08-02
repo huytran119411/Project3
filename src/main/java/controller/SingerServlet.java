@@ -25,7 +25,11 @@ public class SingerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         switch (action) {
-            case "detail":
+            case "home":
+                home(request, response);
+                break;
+            case "homeAdmin":
+                homeAdmin(request, response);
                 break;
             case "delete":
                 deleteSinger(request, response);
@@ -113,7 +117,7 @@ public class SingerServlet extends HttpServlet {
 
     private void updateSingerById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Singer singer = singerService.findtById(id);
+        Singer singer = singerService.findById(id);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/editSinger.jsp");
         request.setAttribute("singer", singer);
         requestDispatcher.forward(request, response);
@@ -127,7 +131,7 @@ public class SingerServlet extends HttpServlet {
         int phoneNumber = Integer.parseInt(request.getParameter("phone_number"));
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Singer singer = singerService.findtById(id);
+        Singer singer = singerService.findById(id);
         singer.setPassword(password);
         singer.setSingerName(singerName);
         singer.setPicture(picture);
@@ -150,5 +154,14 @@ public class SingerServlet extends HttpServlet {
         } else {
             return false;
         }
+    }
+
+    private void home(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPageUserSinger.jsp");
+        requestDispatcher.forward(request, response);
+    }
+    private void homeAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPageUserAdmin.jsp");
+        requestDispatcher.forward(request, response);
     }
 }

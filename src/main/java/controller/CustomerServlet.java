@@ -23,7 +23,8 @@ public class CustomerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         switch (action) {
-            case "detail":
+            case "home":
+                home(request, response);
                 break;
             case "delete":
                 deleteCustomer(request, response);
@@ -114,7 +115,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void updateCustomerById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerService.findtById(id);
+        Customer customer = customerService.findById(id);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/edit.jsp");
         request.setAttribute("customer", customer);
         requestDispatcher.forward(request, response);
@@ -126,7 +127,7 @@ public class CustomerServlet extends HttpServlet {
         int phone_number = Integer.parseInt(request.getParameter("phone_number"));
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Customer customer = customerService.findtById(id);
+        Customer customer = customerService.findById(id);
         customer.setPassword(password);
         customer.setPhonenumber(phone_number);
         customer.setEmail(email);
@@ -187,8 +188,8 @@ public class CustomerServlet extends HttpServlet {
             return false;
         }
     }
-    private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainpage.jsp");
+    private void home(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPageUser.jsp");
         requestDispatcher.forward(request, response);
     }
 }

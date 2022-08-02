@@ -14,7 +14,7 @@ public class SingerServiceImpl implements IService<Singer>{
     }
 
     @Override
-    public Singer findtById(int id) {
+    public Singer findById(int id) {
         return singerRepository.findSingerById(id);
     }
 
@@ -34,7 +34,7 @@ public class SingerServiceImpl implements IService<Singer>{
     }
 
     @Override
-    public ArrayList findtByName(String name) {
+    public ArrayList findByName(String name) {
         return null;
     }
 }

@@ -100,7 +100,7 @@
             <input type="text" name="password" id="password" placeholder="Password (chữ,số,kí tự,chữ in hoa)" value="${singer.getPassword()}">
             <input type="text" name="singer_name" id="singer_name" placeholder="Singer Name" value="${singer.getSingerName()}">
             <input type="text" name="picture" id="picture" placeholder="Picture" value="${singer.getPicture()}">
-            <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" value="${singer.getPhonenumber()}">
+            <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" value="${singer.getPhoneNumber()}">
             <input type="text" name="email" id="email" placeholder="Email" value="${singer.getEmail()}">
             <input type="text" name="address" id="address" placeholder="Address" value="${singer.getAddress()}">
             <p id = "result1">${result1}</p>

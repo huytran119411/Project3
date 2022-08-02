@@ -14,8 +14,8 @@ public class SongServiceImpl implements IService<Song> {
     }
 
     @Override
-    public Song findtById(int id) {
-        return null;
+    public Song findById(int id) {
+        return songRepository.findSongById(id);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class SongServiceImpl implements IService<Song> {
 
 
     @Override
-    public ArrayList<Song> findtByName(String name) {
+    public ArrayList<Song> findByName(String name) {
         return songRepository.findSongByName(name);
     }
 }

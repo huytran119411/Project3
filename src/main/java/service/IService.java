@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public interface IService<E> {
         ArrayList<E> findAll();
 
-        E findtById(int id);
+        E findById(int id);
 
         void add(E e);
 
@@ -13,5 +13,5 @@ public interface IService<E> {
 
         void delete(int id);
 
-        ArrayList<E> findtByName(String name);
+        ArrayList<E> findByName(String name);
     }

@@ -1,17 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: haphong
-  Date: 01/08/2022
-  Time: 17:04
-  To change this template use File | Settings | File Templates.
---%>
-<%--
-  Created by IntelliJ IDEA.
-  User: haphong
-  Date: 27/07/2022
-  Time: 08:54
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -33,10 +19,12 @@
   <div class="d-flex flex-grow-1">
     <span class="w-100 d-lg-none d-block"></span>
     <a class="navbar-brand d-none d-lg-inline-block" href="/Customer?action="><i class="fa-solid fa-house-user"></i> Home </a>
-    <div class="input-group sm">
-      <input type="text" class="form-control" placeholder="Search">
+    <form action="/Song?action=findSong" method="post">
+      <div class="input-group sm">
+      <input type="text" name="name" class="form-control" placeholder="Search" style="width:500px;">
       <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
+    </form>
   </div>
   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
     <ul class="navbar-nav ms-auto flex-nowrap">
@@ -100,9 +88,9 @@
       <br>
       <h2 style="color:white">Hit Song</h2>
       <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
-        <img src="../picture/maxresdefault.jpeg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
+        <a href="/Song?action=playSong&id=5" style="text-decoration: none"><img src="../picture/maxresdefault.jpeg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
         <b><p style="text-align: center; color: white;padding: 13px";>Hương Mùa Hè</p></b>
-        <p style="text-align: center; color: white"> Hương Mùa Hè Band </p>
+        <p style="text-align: center; color: white"> Hương Mùa Hè Band </p></a>
       </div>
       <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
         <img src="https://photo-zmp3.zmdcdn.me/banner/2/f/2/e/2f2ee9e31054d0894da4d2a3495bb54c.jpg" alt="..." style="width:90%;height: 180px;border-radius: 5%">

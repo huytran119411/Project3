@@ -13,7 +13,7 @@ public final CustomerRepository customerRepository = new CustomerRepository();
     }
 
     @Override
-    public Customer findtById(int id) {
+    public Customer findById(int id) {
         return customerRepository.findCustomerById(id);
     }
 
@@ -33,7 +33,7 @@ public final CustomerRepository customerRepository = new CustomerRepository();
     }
 
     @Override
-    public ArrayList<Customer> findtByName(String name) {
+    public ArrayList<Customer> findByName(String name) {
         return null;
     }
 }
