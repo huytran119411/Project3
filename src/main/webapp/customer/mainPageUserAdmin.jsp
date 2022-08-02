@@ -30,7 +30,7 @@
         <ul class="navbar-nav ms-auto flex-nowrap">
             <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-outline-warning">Hello Admin</button></a>
             <li class="nav-item">
-            <a href="/customer/signUpSinger.jsp" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Tạo Tài Khoản Ca Sĩ</button></a>
+            <a href="/customer/signupSinger.jsp" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Tạo Tài Khoản Ca Sĩ</button></a>
         </li>
             <li class="nav-item">
                 <a href="/Customer?action=" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Sign Out</button></a>
