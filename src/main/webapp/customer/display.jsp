@@ -12,7 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/customer/login_test.jsp">Login</a>
+<a href="/customer/login.jsp">Login</a>
+<a href="/customer/signup.jsp">Sign Up</a>
 <table border="1" width="300px">
     <tr>
         <th>ID</th>
@@ -20,7 +21,6 @@
         <th>Phone Number</th>
         <th>Email</th>
         <th>Address</th>
-        <th>Wallet</th>
         <th colspan="2">Action</th>
     </tr>
     <c:forEach items="${customers}" var="c">
@@ -30,7 +30,6 @@
             <td>${c.getPhonenumber()}</td>
             <td>${c.getEmail()}</td>
             <td>${c.getAddress()}</td>
-            <td>${c.getWallet()}</td>
             <td><button><a href="/Customer?action=edit&id=${c.getId()}">Edit</a></button></td>
             <td><button><a href="/Customer?action=delete&id=${c.getId()}">Delete</a></button></td>
         </tr>

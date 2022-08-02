@@ -21,19 +21,21 @@
         align-items: center;
         min-height: 100vh;
         font-family: 'Jost', sans-serif;
-        background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+        background: #212529;
         flex-direction: column;
     }
     .main{
-        width: 40%;
+        width: 450px;
         height: 500px;
         overflow: hidden;
+        background-image: url(/picture/icons-gray-bg.svg);
+        background-color: white ;
         border-radius: 10px;
         box-shadow: 5px 20px 50px #000;
-        justify-content: center;
-        display: flex;
     }
+
     table{
+        width: 450px;
         height: 500px;
     }
     button{
@@ -54,14 +56,14 @@
         cursor: pointer;
     }
     label{
-        color: #3ea68a;
-        font-size: 2.3em;
+        text-align: center;
+        color: #000000;
+        font-size: 35px;
         justify-content: center;
         display: flex;
-        margin: 30px;
+        margin: 40px;
         font-weight: bold;
-        cursor: pointer;
-        transition: .5s ease-in-out;
+        text-shadow: 4px 4px 0 #3ea68a, 7px 7px 0 rgba(0, 0, 0, 0.2);
     }
 </style>
 <body>
@@ -69,30 +71,30 @@
 <form action="/Customer?action=edit" method="post">
     <table>
         <tr>
-            <th colspan="2"><label>Edit Infomation</label></th>
+            <th colspan="2" ><label>Edit Infomation</label></th>
         </tr>
         <tr>
-            <td>User Id</td>
+            <td style=text-align:center >User Id</td>
             <td> <input size="40" type="text" name="id" id="id" value="${customer.getId()}" readonly></td>
         </tr>
         <tr>
-            <td>Username</td>
+            <td style=text-align:center >Username</td>
             <td> <input size="40" type="text" name="username" id="username" value="${customer.getUsername()}" readonly></td>
         </tr>
         <tr>
-            <td>Password</td>
+            <td style=text-align:center >Password</td>
             <td><input size="40" type="text" name="password" id="password" value="${customer.getPassword()}"></td>
         </tr>
         <tr>
-            <td>Phone Number</td>
+            <td style=text-align:center >Phone Number</td>
             <td><input size="40" type="text" name="phone_number" id="phone_number" value="${customer.getPhonenumber()}"></td>
         </tr>
         <tr>
-            <td>Email</td>
+            <td style=text-align:center >Email</td>
             <td><input size="40" type="text" name="email" id="email" value="${customer.getEmail()}"></td>
         </tr>
         <tr>
-            <td>Address</td>
+            <td style=text-align:center >Address</td>
             <td><input size="40" type="text" name="address" id="address" value="${customer.getAddress()}"></td>
         </tr>
         <tr>

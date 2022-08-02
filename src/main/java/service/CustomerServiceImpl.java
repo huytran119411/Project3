@@ -2,6 +2,7 @@ package service;
 
 import DAO.CustomerRepository;
 import model.Customer;
+import model.Song;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public final CustomerRepository customerRepository = new CustomerRepository();
     }
 
     @Override
-    public Customer findtById(int id) {
+    public Customer findById(int id) {
         return customerRepository.findCustomerById(id);
     }
 
@@ -30,5 +31,20 @@ public final CustomerRepository customerRepository = new CustomerRepository();
     @Override
     public void delete(int id) {
         customerRepository.deleteCustomerById(id);
+    }
+
+    @Override
+    public ArrayList<Customer> findByName(String name) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Customer> findAllById(int id) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Song> findSongById(int id) {
+        return null;
     }
 }

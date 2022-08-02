@@ -38,12 +38,13 @@
 
     label{
         color: #000000;
-        font-size: 4em;
+        font-size: 2em;
         justify-content: center;
         display: flex;
         margin: 40px;
         font-weight: bold;
         text-shadow: 4px 4px 0 #3ea68a, 7px 7px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
     }
     input{
         width: 70%;
@@ -93,13 +94,15 @@
 <body>
 <div class="main">
     <div class="signup">
-        <form action="/Customer?action=create" method="post">
-            <label >Sign up</label>
-            <input type="text" name="username" id="username" placeholder="Username (6-30 kí tự )" value="${customer.getUsername()}">
-            <input type="text" name="password" id="password" placeholder="Password (chữ,số,kí tự,chữ in hoa)" value="${customer.getPassword()}">
-            <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" value="${customer.getPhonenumber()}">
-            <input type="text" name="email" id="email" placeholder="Email" value="${customer.getEmail()}">
-            <input type="text" name="address" id="address" placeholder="Address" value="${customer.getAddress()}">
+        <form action="/Singer?action=create" method="post">
+            <label >Sign Up Singer</label>
+            <input type="text" name="username" id="username" placeholder="Username (6-30 kí tự )" value="${singer.getUsername()}">
+            <input type="text" name="password" id="password" placeholder="Password (chữ,số,kí tự,chữ in hoa)" value="${singer.getPassword()}">
+            <input type="text" name="singer_name" id="singer_name" placeholder="Singer Name" value="${singer.getSingerName()}">
+            <input type="text" name="picture" id="picture" placeholder="Picture" value="${singer.getPicture()}">
+            <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" value="${singer.getPhoneNumber()}">
+            <input type="text" name="email" id="email" placeholder="Email" value="${singer.getEmail()}">
+            <input type="text" name="address" id="address" placeholder="Address" value="${singer.getAddress()}">
             <p id = "result1">${result1}</p>
             <button type="submit">Sign up</button>
         </form>

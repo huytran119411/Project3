@@ -45,8 +45,7 @@ public class CustomerRepository {
                     int phone_number = resultSet.getInt("phone_number");
                     String email = resultSet.getString("email");
                     String address = resultSet.getString("address");
-                    double wallet = resultSet.getDouble("wallet");
-                    Customer customer = new Customer(id, username, password, phone_number, email, address, wallet);
+                    Customer customer = new Customer(id, username, password, phone_number, email, address);
                     customers.add(customer);
                 }
             } catch (SQLException e) {
@@ -68,8 +67,7 @@ public class CustomerRepository {
                     int phone_number = resultSet.getInt("phone_number");
                     String email = resultSet.getString("email");
                     String address = resultSet.getString("address");
-                    double wallet = resultSet.getDouble("wallet");
-                    return new Customer(id_cus, username, password, phone_number, email, address, wallet);
+                    return new Customer(id_cus, username, password, phone_number, email, address);
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());

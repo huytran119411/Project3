@@ -38,7 +38,7 @@
 
     label{
         color: #000000;
-        font-size: 4em;
+        font-size: 3em;
         justify-content: center;
         display: flex;
         margin: 40px;
@@ -93,15 +93,13 @@
 <body>
 <div class="main">
     <div class="signup">
-        <form action="/Customer?action=create" method="post">
-            <label >Sign up</label>
-            <input type="text" name="username" id="username" placeholder="Username (6-30 kí tự )" value="${customer.getUsername()}">
-            <input type="text" name="password" id="password" placeholder="Password (chữ,số,kí tự,chữ in hoa)" value="${customer.getPassword()}">
-            <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" value="${customer.getPhonenumber()}">
-            <input type="text" name="email" id="email" placeholder="Email" value="${customer.getEmail()}">
-            <input type="text" name="address" id="address" placeholder="Address" value="${customer.getAddress()}">
-            <p id = "result1">${result1}</p>
-            <button type="submit">Sign up</button>
+        <form action="/Song?action=create" method="post">
+            <label >Create Song</label>
+            <input type="text" name="songName" id="songName" placeholder="Song Name" >
+            <input type="text" name="linkSong" id="linkSong" placeholder="Link Song (.mp3)">
+            <input type="text" name="linkImage" id="linkImage" placeholder="Link Image">
+            <input type="text" name="id" id="id" value="${id}" style="display: none">
+            <button type="submit">Create</button>
         </form>
     </div>
 </div>

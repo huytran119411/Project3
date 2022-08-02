@@ -1,31 +1,37 @@
 package model;
 
-public class Customer {
+public class Singer {
     private int id;
-    private String username;
-    private String password;
-    private int phonenumber;
+    private String username ;
+    private String password ;
+    private String singerName ;
+    private String picture ;
+    private int phoneNumber ;
     private String email;
     private String address;
 
-    public Customer(int id, String username, String password, int phonenumber, String email, String address) {
+    public Singer(int id, String username, String password, String singerName, String picture, int phoneNumber, String email, String address) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.phonenumber = phonenumber;
+        this.singerName = singerName;
+        this.picture = picture;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
     }
 
-    public Customer() {
-    }
-
-    public Customer(String username, String password, int phonenumber, String email, String address) {
+    public Singer(String username, String password, String singerName, String picture, int phoneNumber, String email, String address) {
         this.username = username;
         this.password = password;
-        this.phonenumber = phonenumber;
+        this.singerName = singerName;
+        this.picture = picture;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
+    }
+
+    public Singer() {
     }
 
     public int getId() {
@@ -52,12 +58,28 @@ public class Customer {
         this.password = password;
     }
 
-    public int getPhonenumber() {
-        return phonenumber;
+    public String getSingerName() {
+        return singerName;
     }
 
-    public void setPhonenumber(int phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setSingerName(String singerName) {
+        this.singerName = singerName;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -76,16 +98,24 @@ public class Customer {
         this.address = address;
     }
 
-
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Singer{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", phonenumber=" + phonenumber +
+                ", singerName='" + singerName + '\'' +
+                ", picture='" + picture + '\'' +
+                ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }
 }
+
+
+
+
+
+
+

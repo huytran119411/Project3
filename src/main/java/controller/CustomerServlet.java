@@ -1,25 +1,30 @@
 package controller;
 
 import model.Customer;
+import model.Singer;
 import service.CustomerServiceImpl;
+import service.SingerServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebServlet(name = "CustomerServlet", value = "/Customer")
 public class CustomerServlet extends HttpServlet {
     private final CustomerServiceImpl customerService = new CustomerServiceImpl();
+    private final SingerServiceImpl singerService = new SingerServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         switch (action) {
-            case "detail":
+            case "home":
+                home(request, response);
                 break;
             case "delete":
                 deleteCustomer(request, response);
@@ -28,7 +33,7 @@ public class CustomerServlet extends HttpServlet {
                 updateCustomerById(request, response);
                 break;
             default:
-                displayAllCustomer(request, response);
+                mainPage(request, response);
         }
     }
 
@@ -51,13 +56,25 @@ public class CustomerServlet extends HttpServlet {
     private void addCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        int phone_number = Integer.parseInt(request.getParameter("phone_number"));
+        int phone_number;
+        if((request.getParameter("phone_number")).equals("")) {
+            phone_number=0;
+        }else{phone_number=Integer.parseInt(request.getParameter("phone_number"));
+        }
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        String url = "customer/login_test.jsp";
+        String url = "customer/login.jsp";
+        ArrayList<Customer> customerArrayList = customerService.findAll();
         if(!regexChecker("^[A-Za-z0-9._]{6,30}$", username)) {
             url = "customer/signup.jsp";
             username = "Please input again";
+        }
+        for (Customer customer: customerArrayList) {
+            if (customer.getUsername().equals(username)) {
+                url = "customer/signup.jsp";
+                username = "Username is  already exists!!!";
+                break;
+            }
         }
         if(!regexChecker("^[A-Za-z0-9._\\%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", email)) {
             url = "customer/signup.jsp";
@@ -83,6 +100,17 @@ public class CustomerServlet extends HttpServlet {
         requestDispatcher.forward(request, response);
     }
 
+    private void mainPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPage.jsp");
+        HttpSession httpSession = request.getSession();
+        httpSession.setAttribute("result","");
+        httpSession.setAttribute("name","");
+        httpSession.setAttribute("id","");
+        httpSession.setAttribute("singerName","");
+        httpSession.setAttribute("singerId","");
+        requestDispatcher.forward(request, response);
+    }
+
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         customerService.delete(id);
@@ -91,7 +119,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void updateCustomerById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = customerService.findtById(id);
+        Customer customer = customerService.findById(id);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/edit.jsp");
         request.setAttribute("customer", customer);
         requestDispatcher.forward(request, response);
@@ -103,28 +131,51 @@ public class CustomerServlet extends HttpServlet {
         int phone_number = Integer.parseInt(request.getParameter("phone_number"));
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Customer customer = customerService.findtById(id);
+        Customer customer = customerService.findById(id);
         customer.setPassword(password);
         customer.setPhonenumber(phone_number);
         customer.setEmail(email);
         customer.setAddress(address);
         customerService.update(customer);
-        response.sendRedirect("/Customer?action=");
+        response.sendRedirect("customer/mainPageUser.jsp");
     }
 
     private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         ArrayList<Customer> customerArrayList = customerService.findAll();
+        ArrayList<Singer> singerArrayList = singerService.findAll();
+        String url = "customer/login.jsp";
+        Customer customer1 = null;
+        Singer singer1 = null;
         for (Customer customer : customerArrayList) {
             if (customer.getUsername().equals(username) && customer.getPassword().equals(password)) {
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPage.jsp");
-                request.setAttribute("name", username);
-                requestDispatcher.forward(request, response);
+                url = "customer/mainPageUser.jsp";
+                customer1 = customer;
+                break;
             }
         }
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/login_test.jsp");
-        request.setAttribute("result", "Tài Khoản Hoặc Mật Khẩu Không Đúng");
+        for (Singer singer : singerArrayList) {
+            if (singer.getUsername().equals(username) && singer.getPassword().equals(password)) {
+                url = "customer/mainPageUserSinger.jsp";
+                singer1 = singer;
+                break;
+            }
+        }
+        if ((Objects.equals(username, "admin")) && (Objects.equals(password, "admin"))) {
+            url = "customer/mainPageUserAdmin.jsp";
+        }
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(url);
+        HttpSession httpSession = request.getSession();
+        httpSession.setAttribute("result", "Tài Khoản Hoặc Mật Khẩu Không Đúng");
+        if (url.equals("customer/mainPageUser.jsp")) {
+            httpSession.setAttribute("name", customer1.getUsername());
+            httpSession.setAttribute("id", customer1.getId());
+        }
+        if (url.equals("customer/mainPageUserSinger.jsp")) {
+            httpSession.setAttribute("singerName", singer1.getSingerName());
+            httpSession.setAttribute("singerId", singer1.getId());
+        }
         requestDispatcher.forward(request, response);
     }
 
@@ -140,5 +191,9 @@ public class CustomerServlet extends HttpServlet {
         } else {
             return false;
         }
+    }
+    private void home(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/mainPageUser.jsp");
+        requestDispatcher.forward(request, response);
     }
 }
