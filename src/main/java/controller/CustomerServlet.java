@@ -56,7 +56,11 @@ public class CustomerServlet extends HttpServlet {
     private void addCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        int phone_number = Integer.parseInt(request.getParameter("phone_number"));
+        int phone_number;
+        if((request.getParameter("phone_number")).equals("")) {
+            phone_number=0;
+        }else{phone_number=Integer.parseInt(request.getParameter("phone_number"));
+        }
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String url = "customer/login.jsp";

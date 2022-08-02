@@ -12,9 +12,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @WebServlet(name = "SongServlet", value = "/Song")
 public class SongServlet extends HttpServlet {
@@ -57,6 +54,15 @@ public class SongServlet extends HttpServlet {
             case "findSong":
             findSong(request, response);
             break;
+            case "findSongUser":
+                findSongUser(request, response);
+                break;
+            case "findSongSinger":
+                findSongSinger(request, response);
+                break;
+            case "findSongAdmin":
+                findSongAdmin(request, response);
+                break;
         }
     }
 
@@ -134,4 +140,27 @@ public class SongServlet extends HttpServlet {
         requestDispatcher.forward(request, response);
     }
 
+    private void findSongUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        ArrayList<Song> songArrayList = songService.findByName(name);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/findSongUser.jsp");
+        request.setAttribute("songArrayList", songArrayList);
+        requestDispatcher.forward(request, response);
+    }
+
+    private void findSongSinger(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        ArrayList<Song> songArrayList = songService.findByName(name);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/findSongSinger.jsp");
+        request.setAttribute("songArrayList", songArrayList);
+        requestDispatcher.forward(request, response);
+    }
+
+    private void findSongAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        ArrayList<Song> songArrayList = songService.findByName(name);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/findSongAdmin.jsp");
+        request.setAttribute("songArrayList", songArrayList);
+        requestDispatcher.forward(request, response);
+    }
 }

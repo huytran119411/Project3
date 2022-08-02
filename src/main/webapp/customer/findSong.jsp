@@ -21,10 +21,12 @@
     <div class="d-flex flex-grow-1">
         <span class="w-100 d-lg-none d-block"></span>
         <a class="navbar-brand d-none d-lg-inline-block" href="/Customer?action="><i class="fa-solid fa-house-user"></i> Home </a>
-        <div class="input-group sm">
-            <input type="text" class="form-control" placeholder="Search">
-            <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
+        <form action="/Song?action=findSong" method="post">
+            <div class="input-group sm">
+                <input type="text" name="name" class="form-control" placeholder="Search" style="width:500px;">
+                <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </form>
     </div>
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ms-auto flex-nowrap">
@@ -50,7 +52,7 @@
 </div>
 <div class="row" style=" padding-top:10px;">
     <div class="col-3" style="padding-right:0; background-color: #212529;">
-        <img src="../picture/Screen Shot 2022-07-30 at 11.33.24.png" alt="..." style="width:100%;border-radius: 5%">
+        <img src="../picture/black modern religious motivational quote poster.png" alt="..." style="width:100%;border-radius: 5%">
     </div>
     <div class="col-9" style="background-color: #212529">
         <div class="row">
