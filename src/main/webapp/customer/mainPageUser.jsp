@@ -49,6 +49,9 @@
                 <button type="button" class="btn btn-outline-warning">Hello ${name} </button>
             </a>
             <li class="nav-item">
+                <a href="/Playlist?action=displaySong&id=${id}" class="nav-link m-2 menu-item" ><button type="submit" class="btn btn-success">Quản Lý Playlist</button></a>
+            </li>
+            <li class="nav-item">
                 <a href="/Customer?action=edit&id=${id}" class="nav-link m-2 menu-item" ><button type="submit" class="btn btn-success">Thay Đổi Thông Tin</button></a>
             </li>
             <li class="nav-item">
@@ -118,41 +121,49 @@
                 <a href="/Song?action=playSongUser&id=5" style="text-decoration: none"><img src="../picture/maxresdefault.jpeg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
                     <b><p style="text-align: center; color: white;padding: 13px";>Hương Mùa Hè</p></b>
                     <p style="text-align: center; color: white"> Hương Mùa Hè Band </p></a>
+                <a href="/Playlist?action=add&username=${name}&id=5&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
             </div>
             <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
                 <a href="/Song?action=playSongUser&id=1" style="text-decoration: none"><img src="https://photo-zmp3.zmdcdn.me/banner/2/f/2/e/2f2ee9e31054d0894da4d2a3495bb54c.jpg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
                     <b><p style="text-align: center; color: white;padding: 13px";>Đoạn Kết Mới</p></b>
                     <p style="text-align: center; color: white"> Hoàng Dũng </p></a>
+                <a href="/Playlist?action=add&username=${name}&id=1&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
             </div>
             <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
                 <a href="/Song?action=playSongUser&id=2" style="text-decoration: none"><img src="https://data.chiasenhac.com/data/cover/166/165383.jpg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
                     <b><p style="text-align: center; color: white;padding: 13px";>Vì Mẹ Anh Bắt Chia Tay</p></b>
                     <p style="text-align: center; color: white">Miu Lê</p></a>
+                <a href="/Playlist?action=add&username=${name}&id=2&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
             </div>
             <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
                 <a href="/Song?action=playSongUser&id=3" style="text-decoration: none"><img src="https://i.ytimg.com/vi/B9PDYlaV84w/maxresdefault.jpg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
                     <b><p style="text-align: center; color: white;padding: 13px";>Lời Tạm Biệt Chưa Nói</p></b>
                     <p style="text-align: center; color: white"> Orange & Grey D </p></a>
+                <a href="/Playlist?action=add&username=${name}&id=3&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
             </div>
             <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
                 <a href="/Song?action=playSongUser&id=4" style="text-decoration: none"><img src="https://i.ytimg.com/vi/LaxkmhiECfM/maxresdefault.jpg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
                     <b><p style="text-align: center; color: white;padding: 13px";>Bên Trên Tầng Lầu</p></b>
                     <p style="text-align: center; color: white">Tăng Duy Tân</p></a>
+                <a href="/Playlist?action=add&username=${name}&id=4&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
             </div>
             <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
                 <a href="/Song?action=playSongUser&id=10" style="text-decoration: none"><img src="https://i.scdn.co/image/ab67616d0000b27311011e6d4d2fc5969ba8ab68" alt="..." style="width:90%;height: 180px;border-radius: 5%">
                     <b><p style="text-align: center; color: white;padding: 13px";>Hết Nhạc Con Về</p></b>
                     <p style="text-align: center; color: white"> Cukak </p></a>
+                <a href="/Playlist?action=add&username=${name}&id=10&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
             </div>
             <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
                 <a href="/Song?action=playSongUser&id=9" style="text-decoration: none"><img src="https://navicdn.com/karaokeviet/images/2019/03/05/i4XWOJwUr5onCXarVFBnf8Dt8VDhqYiLAjYGngWy.jpeg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
                     <b><p style="text-align: center; color: white;padding: 13px";>Mãi Mãi Bên Nhau</p></b>
                     <p style="text-align: center; color: white"> Noo Phước Thịnh </p></a>
+                <a href="/Playlist?action=add&username=${name}&id=9&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
             </div>
             <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
                 <a href="/Song?action=playSongUser&id=11" style="text-decoration: none"><img src="https://i.ytimg.com/vi/iODOOoONVew/maxresdefault.jpg" alt="..." style="width:90%;height: 180px;border-radius: 5%">
                     <b><p style="text-align: center; color: white;padding: 13px";>Đồi Thông Hai Mộ</p></b>
                     <p style="text-align: center; color: white"> Hoàng Châu </p></a>
+                <a href="/Playlist?action=add&username=${name}&id=11&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
             </div>
         </div>
         <div class="row">

@@ -37,4 +37,14 @@ public class SongServiceImpl implements IService<Song> {
     public ArrayList<Song> findByName(String name) {
         return songRepository.findSongByName(name);
     }
+
+    @Override
+    public ArrayList<Song> findAllById(int id) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Song> findSongById(int id) {
+        return null;
+    }
 }

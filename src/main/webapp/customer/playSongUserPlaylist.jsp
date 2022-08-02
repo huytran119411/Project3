@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: haphong
-  Date: 02/08/2022
-  Time: 14:49
+  Date: 31/07/2022
+  Time: 09:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,6 +15,21 @@
 <head>
     <title>Play Song</title>
 </head>
+<style>
+    .container-audio {
+        width: 66%;
+        height: auto;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #eee;
+        color: #444;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+    audio {
+        width:100%;
+    }
+</style>
 <body>
 <div id="home"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -58,18 +73,29 @@
         <img src="../picture/black modern religious motivational quote poster.png" alt="..." style="width:100%;border-radius: 5%">
     </div>
     <div class="col-9" style="background-color: #212529">
+        <div style="text-align: center;padding: 10px;">
+            <img src="${song.getLinkImage()}" alt="..." style="width:90%;height: 400px;border-radius: 5%">
+            <p style="text-align: center; color: white;padding: 10px";>${song.getSongName()}</p>
+            <p style="text-align: center; color: white">${singer.getSingerName()}</p>
+        </div>
+        <div class="container-audio">
+            <audio controls loop>
+                <source src="${song.getLinkSong()}" type="audio/mp3">
+            </audio>
+    </div>
         <div class="row">
             <br>
             <h2 style="color:white">Song</h2>
             <c:forEach items="${songArrayList}" var="s">
-            <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
-                <a href="/Song?action=playSongUser&id=${s.getId()}" style="text-decoration: none"><img src="${s.getLinkImage()}" alt="..." style="width:90%;height: 180px;border-radius: 5%">
-                    <b><p style="text-align: center; color: white;padding: 13px";>${s.getSongName()}</p></b>
-                    <p style="text-align: center; color: white"></p></a>
-                <a href="/Playlist?action=addFromSearch&username=${name}&id=${s.getId()}&customerId=${id}"><button class="btn btn-success" type="submit">Add To Playlist</button></a>
-            </div>
+                <div class="col-3" style="text-align: center; border-radius: 5%;border: 5px solid #170f24 ;background-color: #170f24;padding: 10px;">
+                    <a href="/Playlist?action=play&id=${s.getId()}" style="text-decoration: none"><img src="${s.getLinkImage()}" alt="..." style="width:90%;height: 180px;border-radius: 5%">
+                        <b><p style="text-align: center; color: white;padding: 13px";>${s.getSongName()}</p></b>
+                        <p style="text-align: center; color: white"></p></a>
+                </div>
             </c:forEach>
-    </div>
+        </div>
+
+</div>
 </div>
 <%--body end--%>
 <div class="row">

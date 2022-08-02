@@ -1,5 +1,7 @@
 package service;
 
+import model.Song;
+
 import java.util.ArrayList;
 
 public interface IService<E> {
@@ -14,4 +16,9 @@ public interface IService<E> {
         void delete(int id);
 
         ArrayList<E> findByName(String name);
+
+        ArrayList<E> findAllById(int id);
+
+        ArrayList<Song> findSongById(int id);
+
     }

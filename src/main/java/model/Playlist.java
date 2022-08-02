@@ -2,10 +2,10 @@ package model;
 
 public class Playlist {
     private String playlistName;
-    private String songId;
-    private String customerId;
+    private int songId;
+    private int customerId;
 
-    public Playlist(String playlistName, String songId, String customerId) {
+    public Playlist(String playlistName, int songId, int customerId) {
         this.playlistName = playlistName;
         this.songId = songId;
         this.customerId = customerId;
@@ -22,28 +22,19 @@ public class Playlist {
         this.playlistName = playlistName;
     }
 
-    public String getSongId() {
+    public int getSongId() {
         return songId;
     }
 
-    public void setSongId(String songId) {
+    public void setSongId(int songId) {
         this.songId = songId;
     }
 
-    public String getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
-    }
-
-    @Override
-    public String toString() {
-        return "Playlist{" +
-                "playlistName='" + playlistName + '\'' +
-                ", songId='" + songId + '\'' +
-                ", customerId='" + customerId + '\'' +
-                '}';
     }
 }
