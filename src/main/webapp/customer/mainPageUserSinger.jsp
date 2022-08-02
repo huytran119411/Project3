@@ -28,12 +28,12 @@
     </div>
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ms-auto flex-nowrap">
-            <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-outline-warning">Hello ${name} </button></a>
+            <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-outline-warning">Hello ${singerName} </button></a>
             <li class="nav-item">
             <a href="/Singer?action=edit&id=${singerId}" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Thay Đổi Thông Tin</button></a>
         </li>
             <li class="nav-item">
-                <a href="#" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Thêm Bài Hát</button></a>
+                <a href="/Song?action=tranfer&id=${singerId}" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Thêm Bài Hát</button></a>
             </li>
             <li class="nav-item">
                 <a href="/Customer?action=" class="nav-link m-2 menu-item"><button type="button" class="btn btn-success">Sign Out</button></a>
